@@ -16,17 +16,27 @@ td,th{
     height:30px;
 
 }
-
+a{
+text-decoration: none;
+color: black;
+}
 a:hover{
-    color:white;
+    color:orange;
 }
 
 th:hover{
-    background-color:blue;
+    background-color:blanchedalmond;
 }
-
+img{
+    max-width: 50px;
+    max-height: 50px;
+}
 img:hover{
-    transform : scale(2);
+    transform : scale(5);
+}
+tr:nth-child(odd) {
+  background-color:blueviolet;
+  color:white;
 }
 
 @media only screen and (max-width: 600px) {
