@@ -1,0 +1,50 @@
+body{background-color:aliceblue;}
+form{
+    background-color: white;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 2px 1px -1px #0003, 0 1px 1px #00000024, 0 1px 3px #0000001f;
+    width:60%;
+}
+h1{ 
+    margin: 50px auto;
+}
+label {
+  width: 150px;
+  display: inline-block;
+}
+input {
+  width: 250px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  font-size: 1em;
+  box-sizing: border-box; /* pour s'assurer que les margin/padding n'impacte pas la largeur width */
+}
+input:invalid{
+   border:  solid red;
+
+}
+.btn-primary {
+  border-radius: 5px;
+  padding: 6px 12px;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  width: 250px;
+}
+form:invalid button[type="submit"] {
+  background-color: gray;
+}
+input:invalid + .icon-ok {
+  display: none;
+}
+input:valid + .icon-ok {
+  display: inline-block;
+}
+.icon-ok{
+color:green;
+
+}
