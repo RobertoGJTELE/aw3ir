@@ -48,7 +48,6 @@ input:valid + .icon-ok {
 color:green;
 
 }
-span{
+#emoji{
   border:solid black;
-  background-color: aquamarine;
 }
