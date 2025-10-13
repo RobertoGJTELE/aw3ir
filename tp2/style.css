@@ -48,3 +48,7 @@ input:valid + .icon-ok {
 color:green;
 
 }
+span{
+  border:solid black;
+  background-color: aquamarine;
+}
