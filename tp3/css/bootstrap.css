@@ -776,7 +776,8 @@ progress {
   flex: 0 0 auto;
   width: 91.66666667%;
 }
-
+a{text-decoration: none;
+color: black;}
 .col-12 {
   flex: 0 0 auto;
   width: 100%;
@@ -990,7 +991,7 @@ progress {
     flex: 0 0 auto;
     width: 100%;
   }
-
+#map { height: 180px; }
   .offset-sm-0 {
     margin-left: 0;
   }
