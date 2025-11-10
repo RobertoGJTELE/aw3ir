@@ -1,39 +1,103 @@
-<!doctype html>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>TP4</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
-
-    <style>
-        body {
-            background-color: #e9ebee;
-            font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
-            font-size: 16px;
-            margin: 0 auto;
-            max-width: 800px;
-        }
-    </style>
-
-    <!-- Code à dé-commenter si besoin de fichier CSS ou JS -->
-    <!--<link rel="stylesheet" href="style.css">-->
-    <!--<script src="main.js"></script>-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS Bootstrap -->
+  <link rel="stylesheet" href="css/bootstrap.css" />
+  <script src="js/bootstrap.bundle.js"></script>
+  <script src="js/gps.js"></script>
+  <script src="js/form-validation.js"></script>
+    <script src="store.js"></script>
+         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+  <title>Ajouter un Contact</title>
 </head>
-
 <body>
-    <nav>
-        <a href="..">🏠 Index</a> / TP4
-    </nav>
-    <h1>TP4</h1>
-    <!-- Add your site or application content here -->
-    <p>Hello world! This is HTML5 Boilerplate.</p>
-    <img src="../galilee.png" alt="Logo Galilee" />
-</body>
+  <h1>Ajouter un Contact</h1>
 
+  <div class="container">
+    <form>
+            <div class="mb-3 row align-items-center">
+        <label for="nom" class="col-sm-3 col-form-label">Nom</label>
+        <div class="col-sm-9 d-flex align-items-center">
+          <input type="text" class="form-control me-2" id="nom" onkeyup="calcNbChar(this.id)">
+          <div class="form-group col-1" data-count>0 car.</div>
+        </div>
+      </div>
+
+      <div class="mb-3 row align-items-center">
+        <label for="prenom" class="col-sm-3 col-form-label">Prénom</label>
+        <div class="col-sm-9 d-flex align-items-center">
+          <input type="text" class="form-control me-2" id="prenom" onkeyup="calcNbChar(this.id)">
+            <div class="form-group col-1" data-count>0 car.</div>
+        </div>
+      </div>
+
+      <div class="mb-3 row align-items-center">
+        <label for="date" class="col-sm-3 col-form-label">Date de naissance</label>
+        <div class="col-sm-9">
+          <input type="date" class="form-control" id="date" required>
+        </div>
+      </div>
+      <div class="mb-3 row align-items-center">
+        <label for="adresse" class="col-sm-3 col-form-label">Adresse</label>
+        <div class="col-sm-9 d-flex align-items-center">
+          <input type="text" class="form-control me-2" id="adresse" onkeyup="calcNbChar(this.id)">
+          <button type="button" class="btn btn-warning me-2" id="gpsBtn">📍GPS</button>
+          <div class="form-group col-1" data-count>0 car.</div>
+        </div>
+        <div id="map" style="width: 100%; height: 400px; margin-top: 10px;"></div>
+      </div>
+
+      <div class="mb-3 row align-items-center">
+        <label for="email" class="col-sm-3 col-form-label">Mail</label>
+        <div class="col-sm-9 d-flex align-items-center">
+          <input type="email" class="form-control me-2" id="email" onkeyup="calcNbChar(this.id)">
+             <div class="form-group col-1" data-count>0 car.</div>
+        </div>
+      </div>
+      <div class="text-center">
+        <input type="submit" class="btn btn-primary w-50" value="Ajouter">
+      </div>
+    </form>
+  </div>
+  <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">...</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="d-flex align-items-center mb-3">
+  <h2 class="me-3">Liste de contacts <span id="contact-count">(0)</span></h2>
+  <button id="resetBtn" class="btn btn-warning">Reset</button>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Date de naissance</th>
+      <th>Adresse</th>
+      <th>Mail</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  </tbody>
+</table>
+
+</body>
 </html>
